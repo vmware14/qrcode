@@ -17,7 +17,7 @@ namespace AppSystem
     public partial class frm_user : Form
     {
         public bool isEdit;
-        
+
         DataClasses1DataContext db;
         Main fmain;
         //Capture capture = new Capture();
@@ -36,7 +36,7 @@ namespace AppSystem
             var Grades = db.GradeSELECT().ToList();
             foreach (var i in Grades)
             {
-                cboGrade.Items.Add(new ComboBoxItem(i.Grade, i.RecID.ToString()+"/"+i.Remark));
+                cboGrade.Items.Add(new ComboBoxItem(i.Grade, i.RecID.ToString() + "/" + i.Remark));
             }
         }
 
@@ -46,7 +46,7 @@ namespace AppSystem
             rbUser.Checked = true;
 
             getGradeLevel();
-        
+
 
             var Sections = db.SectionSELECT().ToList();
             foreach (var i in Sections)
@@ -90,13 +90,13 @@ namespace AppSystem
 
 
                 cbo_level.SelectedIndex = Convert.ToInt32(fmain.UserLevel) - 1;
-     
+
             }
 
             Process.Start(Tool.RFID_Reader_Path);
 
         }
-  
+
         private void cmd_save_Click(object sender, EventArgs e)
         {
             if (wizard1.SelectedTab == tabPage3)
@@ -209,7 +209,7 @@ namespace AppSystem
 
 
                 string level = ((this.cbo_level.SelectedItem as ComboBoxItem).Value.ToString());
-                db.sp_UpdateUser(txt_fname.Text, txt_MName.Text, txt_Lname.Text, txt_username.Text, level, txt_username.Text, Tool.Encrypt(txt_password.Text), new System.Data.Linq.Binary(FingerPrintScanner.FingerprintTemplate), "", Tool.ImageToByte(pbUser.Image), "", "0", "0", "", "", PhoneNumberStudent.Text, this.Tag.ToString(), "", txtGuardiansName.Text,"");
+                db.sp_UpdateUser(txt_fname.Text, txt_MName.Text, txt_Lname.Text, txt_username.Text, level, txt_username.Text, Tool.Encrypt(txt_password.Text), new System.Data.Linq.Binary(FingerPrintScanner.FingerprintTemplate), "", Tool.ImageToByte(pbUser.Image), "", "0", "0", "", "", PhoneNumberStudent.Text, this.Tag.ToString(), "", txtGuardiansName.Text, "");
                 MessageBox.Show("Changes Successfully saved", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 fmain.getAccounts("%");
                 this.Close();
@@ -237,7 +237,7 @@ namespace AppSystem
                 cbo_level.Tag = i.Level_cn;
                 txt_username.Text = i.Email;
 
-             
+
 
                 try
                 {
@@ -249,7 +249,7 @@ namespace AppSystem
 
                     Console.WriteLine(ex.Message);
                 }
-               
+
                 txtSy.Text = i.SchoolYear;
                 txtStrand.Text = i.Strand;
 
@@ -404,7 +404,7 @@ namespace AppSystem
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
+
         }
 
         private void txt_repeatPassword_Enter(object sender, EventArgs e)
@@ -419,14 +419,14 @@ namespace AppSystem
 
         private void rbUser_CheckedChanged(object sender, EventArgs e)
         {
-           
+
             wizard1.SelectedTab = tabPage3;
         }
 
         private void rbStudent_CheckedChanged(object sender, EventArgs e)
         {
             wizard1.SelectedTab = tabPage4;
-          
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -480,10 +480,15 @@ namespace AppSystem
 
         private void cmdFingerPrint_Click(object sender, EventArgs e)
         {
-            new frm_qrEncode(this).ShowDialog();
+            new frm_fingerPrint().ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+            new frm_fingerPrint().ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
         {
             new frm_qrEncode(this).ShowDialog();
         }

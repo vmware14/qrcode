@@ -97,6 +97,7 @@
             this.txtQrCode = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.txtAdviser = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.wizard1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
@@ -190,7 +191,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(180, 67);
             this.button2.TabIndex = 75;
-            this.button2.Text = "Register QR Code";
+            this.button2.Text = "Finger Print";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -427,6 +428,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button3);
             this.tabPage4.Controls.Add(this.groupBox1);
             this.tabPage4.Controls.Add(this.cmdQr);
             this.tabPage4.Controls.Add(this.button1);
@@ -500,11 +502,11 @@
             // 
             this.cmdQr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cmdQr.ForeColor = System.Drawing.Color.Blue;
-            this.cmdQr.Location = new System.Drawing.Point(303, 341);
+            this.cmdQr.Location = new System.Drawing.Point(301, 317);
             this.cmdQr.Name = "cmdQr";
-            this.cmdQr.Size = new System.Drawing.Size(180, 67);
+            this.cmdQr.Size = new System.Drawing.Size(180, 49);
             this.cmdQr.TabIndex = 74;
-            this.cmdQr.Text = "Register QR Code";
+            this.cmdQr.Text = "Finger Print";
             this.cmdQr.UseVisualStyleBackColor = true;
             this.cmdQr.Click += new System.EventHandler(this.cmdFingerPrint_Click);
             // 
@@ -809,6 +811,18 @@
             this.txtAdviser.Size = new System.Drawing.Size(291, 20);
             this.txtAdviser.TabIndex = 76;
             // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button3.ForeColor = System.Drawing.Color.Blue;
+            this.button3.Location = new System.Drawing.Point(301, 372);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(180, 49);
+            this.button3.TabIndex = 76;
+            this.button3.Text = "Register QR Code";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // frm_user
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -924,5 +938,6 @@
         private System.Windows.Forms.Label label23;
         public System.Windows.Forms.TextBox txtAdviser;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
